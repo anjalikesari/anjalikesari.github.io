@@ -5,9 +5,9 @@ title: Boston Eats
 theme: jekyll-theme-minimal
 email: your_email@example.com
 description: >-  
-  This is my awesome website.
+  Mobile-friendly guide to hidden gem restaurants, cultures, and community food events in Boston.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://Bostoneats.com" # the base hostname & protocol for your site
+url: "https://bostoneats.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
