@@ -1,0 +1,297 @@
+- id: saigon-alley-noodle-house
+  name: Saigon Alley Noodle House
+  area: Dorchester
+  cuisine:
+    - Vietnamese
+  vibe:
+    - cozy
+    - late-night
+  price: "$$"
+  priceLevel: affordable
+  featured: true
+  tags:
+    - affordable
+    - late-night
+    - comfort
+    - easy date
+  hiddenGemScore: 92
+  shortDescription: "Late-night pho and regional specials from southern Vietnam, served warm and quietly."
+  recommendedDishes:
+    - "House pho (broth + brisket)"
+    - "Lemongrass stir-fry noodles"
+    - "Chili oil dumplings"
+  ratings:
+    overall: 4.7
+    food: 4.8
+    service: 4.4
+    ambiance: 4.5
+    reviewCount: 186
+
+- id: abuelas-corner-comedor
+  name: Abuela's Corner Comedor
+  area: East Boston
+  cuisine:
+    - Ecuadorian
+    - Dominican
+  vibe:
+    - homey
+    - lively
+    - family-friendly
+  price: "$$"
+  priceLevel: affordable
+  featured: true
+  tags:
+    - affordable
+    - family-friendly
+    - vibrant
+    - weekend pop-up energy
+  hiddenGemScore: 88
+  shortDescription: "Comfort plates with hand-pressed sides and rotating street-food-style weekend specials."
+  recommendedDishes:
+    - "Chicharron sandwich + spicy slaw"
+    - "Fried plantains with citrus crema"
+    - "Seasonal bowl with house sauce"
+  ratings:
+    overall: 4.6
+    food: 4.7
+    service: 4.5
+    ambiance: 4.3
+    reviewCount: 142
+
+- id: tiger-wok-basement
+  name: Tiger Wok Basement
+  area: Allston
+  cuisine:
+    - Chinese
+  vibe:
+    - after-hours
+    - bold
+  price: "$$"
+  priceLevel: midrange
+  featured: true
+  tags:
+    - date night
+    - spicy
+    - dumplings
+    - hidden gem
+  hiddenGemScore: 90
+  shortDescription: "A basement favorite for hand-pulled noodles, dumplings, and big flavors without big prices."
+  recommendedDishes:
+    - "Hand-pulled garlic noodles"
+    - "Pan-fried pork dumplings"
+    - "Wok-charred veggie platter"
+  ratings:
+    overall: 4.8
+    food: 4.9
+    service: 4.4
+    ambiance: 4.7
+    reviewCount: 312
+
+- id: griot-pikliz-kitchen
+  name: Griot & Pikliz Kitchen
+  area: Mattapan
+  cuisine:
+    - Haitian
+  vibe:
+    - cozy
+    - family-friendly
+  price: "$$"
+  priceLevel: affordable
+  featured: false
+  tags:
+    - affordable
+    - flavorful
+    - comfort
+    - cultural
+  hiddenGemScore: 85
+  shortDescription: "Haitian comfort classics with bright pikliz and slow-cooked griot that tastes like home."
+  recommendedDishes:
+    - "Griot plate + pikliz sampler"
+    - "Soup Joumou (seasonal)"
+    - "Fried plantain stack"
+  ratings:
+    overall: 4.5
+    food: 4.7
+    service: 4.2
+    ambiance: 4.4
+    reviewCount: 97
+
+- id: injera-spot-jamaica-plain
+  name: Injera Spot (JP Edition)
+  area: Jamaica Plain
+  cuisine:
+    - Ethiopian
+    - Eritrean
+  vibe:
+    - social
+    - cozy
+  price: "$$"
+  priceLevel: midrange
+  featured: false
+  tags:
+    - social
+    - vegetarian-friendly
+    - shared plates
+    - date night
+  hiddenGemScore: 87
+  shortDescription: "Injera spreads, spiced stews, and a warm room that makes sharing feel easy."
+  recommendedDishes:
+    - "Tibs sampler"
+    - "Misir wot (lentil stew)"
+    - "Teff crepe + honey spice"
+  ratings:
+    overall: 4.6
+    food: 4.8
+    service: 4.4
+    ambiance: 4.3
+    reviewCount: 131
+
+- id: brazilian-sunshine-kitchen
+  name: Brazilian Sunshine Kitchen
+  area: Somerville
+  cuisine:
+    - Brazilian
+  vibe:
+    - brunchy
+    - upbeat
+  price: "$$"
+  priceLevel: midrange
+  featured: false
+  tags:
+    - upbeat
+    - family-friendly
+    - breakfast all day
+    - cheesy
+  hiddenGemScore: 84
+  shortDescription: "Pao de queijo, churrasco-inspired mains, and a menu that feels like weekend energy."
+  recommendedDishes:
+    - "Pao de queijo + butter drizzle"
+    - "Churrasco bowl with chimichurri"
+    - "Moqueca-style coconut stew"
+  ratings:
+    overall: 4.4
+    food: 4.6
+    service: 4.1
+    ambiance: 4.6
+    reviewCount: 76
+
+- id: cape-verdean-cuscuz-corner
+  name: Cape Verdean Cuscuz Corner
+  area: Roxbury
+  cuisine:
+    - Cape Verdean
+  vibe:
+    - cozy
+    - cultural
+  price: "$"
+  priceLevel: affordable
+  featured: false
+  tags:
+    - affordable
+    - cultural
+    - cozy
+    - comfort
+  hiddenGemScore: 89
+  shortDescription: "Cachupa, bolo, and cuscuz—served with warmth and pride from a small corner spot."
+  recommendedDishes:
+    - "Cachupa (daily special)"
+    - "Bolo + spiced tea"
+    - "Cuscuz with house stew"
+  ratings:
+    overall: 4.7
+    food: 4.8
+    service: 4.3
+    ambiance: 4.4
+    reviewCount: 58
+
+- id: late-night-dumpling-studio
+  name: Late-Night Dumpling Studio
+  area: Chinatown
+  cuisine:
+    - Pan-Asian
+  vibe:
+    - late-night
+    - bold
+    - fun
+  price: "$"
+  priceLevel: affordable
+  featured: false
+  tags:
+    - late-night
+    - fun
+    - dumplings
+    - affordable
+  hiddenGemScore: 86
+  shortDescription: "Quick dumplings, fast noodles, and sauces you’ll want to steal off the table."
+  recommendedDishes:
+    - "Spicy chili crunch dumplings"
+    - "Dan dan-inspired noodle bowl"
+    - "Crispy rice bites"
+  ratings:
+    overall: 4.5
+    food: 4.6
+    service: 4.2
+    ambiance: 4.2
+    reviewCount: 203
+
+- id: veggie-lane-bodega
+  name: Veggie Lane Bodega
+  area: Dorchester
+  cuisine:
+    - Caribbean-Style
+    - Plant-Based
+  vibe:
+    - cozy
+    - quick
+  price: "$"
+  priceLevel: affordable
+  featured: false
+  tags:
+    - affordable
+    - vegetarian-friendly
+    - quick
+    - lunch
+  hiddenGemScore: 83
+  shortDescription: "Bright, plant-forward bowls and Caribbean-inspired sides that hit fast and taste fresh."
+  recommendedDishes:
+    - "Jerk-style cauliflower sandwich"
+    - "Coconut rice + black bean bowl"
+    - "Spiced mango iced tea"
+  ratings:
+    overall: 4.3
+    food: 4.5
+    service: 4.1
+    ambiance: 4.0
+    reviewCount: 64
+
+- id: mezze-moon-spot
+  name: Mezze Moon Spot
+  area: Brighton
+  cuisine:
+    - Middle Eastern
+  vibe:
+    - date night
+    - cozy
+    - social
+  price: "$$"
+  priceLevel: midrange
+  featured: false
+  tags:
+    - date night
+    - shared plates
+    - mezze
+    - cozy
+  hiddenGemScore: 91
+  shortDescription: "Spreads, warm pita, and slow-sipping teas—perfect for a relaxed date or group hang."
+  recommendedDishes:
+    - "Hummus trio + za'atar pita"
+    - "Charred eggplant dip"
+    - "Lemon mint tea flight"
+  ratings:
+    overall: 4.6
+    food: 4.7
+    service: 4.4
+    ambiance: 4.6
+    reviewCount: 119
+
+

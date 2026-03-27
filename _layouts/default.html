@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}" />
+    {% seo %}
+  </head>
+  <body>
+    <a class="be-skip" href="#be-page">Skip to content</a>
+
+    <header class="be-header">
+      <div class="be-header__inner">
+        <a class="be-brand" href="{{ '/' | relative_url }}" aria-label="Boston Eats home">
+          Boston <span>Eats</span>
+        </a>
+
+        <nav class="be-nav" aria-label="Primary">
+          <a class="be-nav__link" href="{{ '/' | relative_url }}">Home</a>
+          <a class="be-nav__link" href="{{ '/about' | relative_url }}">About</a>
+          <a class="be-nav__link" href="{{ '/community' | relative_url }}">Community</a>
+        </nav>
+      </div>
+    </header>
+
+    <div id="be-page" class="be-page">
+      {{ content }}
+    </div>
+
+    <footer class="be-footer">
+      <div class="be-footer__inner">
+        <span>Boston Eats</span>
+        <span class="be-footer__muted">{{ site.description | default: '' }}</span>
+      </div>
+    </footer>
+  </body>
+</html>
+

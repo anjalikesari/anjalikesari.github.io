@@ -5,7 +5,7 @@ title: Boston Eats
 theme: jekyll-theme-minimal
 email: your_email@example.com
 description: >-  
-  Mobile-friendly guide to hidden gem restaurants, cultures, and community food events in Boston.
+  Hidden gem restaurants and cultures in Boston, plus community food events.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bostoneats.com" # the base hostname & protocol for your site
 
