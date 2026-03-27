@@ -6,14 +6,12 @@ title: Boston Eats
 <section class="be-hero">
   <h1>Hidden gem food, plus the cultures behind every bite.</h1>
   <p>
-    Boston Eats helps you uncover under-the-radar restaurants across neighborhoods, guided by vibe, cuisine, price, and
-    a community-minded hidden gem score.
+    Discover local favorites by vibe, cuisine, price, and area.
   </p>
   <div class="be-pill-row" aria-label="Highlights">
-    <span class="be-pill">Featured weekly</span>
-    <span class="be-pill">Tags per restaurant</span>
     <span class="be-pill">Hidden gem score</span>
-    <span class="be-pill">Culture-first picks</span>
+    <span class="be-pill">Quick filters</span>
+    <span class="be-pill">Click for details</span>
   </div>
 </section>
 
@@ -38,11 +36,10 @@ title: Boston Eats
           <div class="r-miniRatings" aria-label="Ratings summary">
             <span class="r-miniRatings__pill">Overall {{ r.ratings.overall }}/5</span>
             <span class="r-miniRatings__pill">{{ r.price }}</span>
-            <span class="r-miniRatings__pill">{{ r.ratings.reviewCount }} reviews</span>
           </div>
 
           <div class="r-tag-row" aria-label="Restaurant tags">
-            {% for t in r.tags limit: 5 %}
+            {% for t in r.tags limit: 3 %}
               <span class="r-tag">{{ t }}</span>
             {% endfor %}
           </div>
@@ -120,7 +117,6 @@ title: Boston Eats
 </section>
 
 <!-- Restaurant modal -->
-<div id="beModalBackdrop" class="be-modalBackdrop" hidden></div>
 <div id="beModal" class="be-modal" role="dialog" aria-modal="true" aria-labelledby="beModalTitle" hidden>
   <div class="be-modal__header">
     <div>
@@ -160,24 +156,6 @@ title: Boston Eats
         <div class="be-section" style="margin-top: 0;">
           <div class="muted" style="font-size: 0.95rem; margin-bottom: 0.5rem; font-weight: 950;">Ratings</div>
           <div class="r-miniRatings" id="beModalRatingsPills"></div>
-
-          <div style="margin-top: 0.85rem;">
-            <div class="ratingRow">
-              <div class="ratingRow__name">Food</div>
-              <div class="bar" aria-hidden="true"><span id="beModalFoodBar" style="width: 0%"></span></div>
-              <div class="ratingRow__score" id="beModalFoodScore">0</div>
-            </div>
-            <div class="ratingRow" style="margin-top: 0.75rem;">
-              <div class="ratingRow__name">Service</div>
-              <div class="bar" aria-hidden="true"><span id="beModalServiceBar" style="width: 0%"></span></div>
-              <div class="ratingRow__score" id="beModalServiceScore">0</div>
-            </div>
-            <div class="ratingRow" style="margin-top: 0.75rem;">
-              <div class="ratingRow__name">Ambiance</div>
-              <div class="bar" aria-hidden="true"><span id="beModalAmbianceBar" style="width: 0%"></span></div>
-              <div class="ratingRow__score" id="beModalAmbianceScore">0</div>
-            </div>
-          </div>
         </div>
 
         <div class="be-section" style="margin-top: 1rem;">
@@ -213,7 +191,6 @@ title: Boston Eats
     const clearFilters = document.getElementById('clearFilters');
 
     // Modal elements
-    const modalBackdrop = document.getElementById('beModalBackdrop');
     const modal = document.getElementById('beModal');
     const modalClose = document.getElementById('beModalClose');
     const modalTitle = document.getElementById('beModalTitle');
@@ -224,12 +201,6 @@ title: Boston Eats
     const modalDesc = document.getElementById('beModalDesc');
     const modalRatingsPills = document.getElementById('beModalRatingsPills');
 
-    const modalFoodBar = document.getElementById('beModalFoodBar');
-    const modalServiceBar = document.getElementById('beModalServiceBar');
-    const modalAmbianceBar = document.getElementById('beModalAmbianceBar');
-    const modalFoodScore = document.getElementById('beModalFoodScore');
-    const modalServiceScore = document.getElementById('beModalServiceScore');
-    const modalAmbianceScore = document.getElementById('beModalAmbianceScore');
     const modalDishes = document.getElementById('beModalDishes');
 
     function unique(arr) {
@@ -323,14 +294,13 @@ title: Boston Eats
     }
 
     function createRestaurantCard(r) {
-      const tags = (r.tags || []).slice(0, 6)
+      const tags = (r.tags || []).slice(0, 3)
         .map((t) => `<span class="r-tag">${escapeHtml(t)}</span>`)
         .join('');
 
       const miniPills = [
         `Overall ${(r.ratings?.overall || 0).toFixed(1)}/5`,
-        `${escapeHtml(r.price || '')}`,
-        `${escapeHtml(String(r.ratings?.reviewCount || 0))} reviews`,
+        `${escapeHtml(r.price || '')}`
       ]
         .map((p) => `<span class="r-miniRatings__pill">${escapeHtml(p)}</span>`)
         .join('');
@@ -370,7 +340,7 @@ title: Boston Eats
       resultsStatus.textContent = `${sorted.length} result${sorted.length === 1 ? '' : 's'}`;
     }
 
-    function openModal(restaurantId) {
+    function openModal(restaurantId, anchorX, anchorY) {
       const r = byId.get(restaurantId);
       if (!r) return;
 
@@ -392,28 +362,27 @@ title: Boston Eats
       modalRatingsPills.innerHTML = [
         `<span class="r-miniRatings__pill">Overall ${Number(overall).toFixed(1)}/5</span>`,
         `<span class="r-miniRatings__pill">${escapeHtml(String(reviewCount))} reviews</span>`,
+        `<span class="r-miniRatings__pill">${escapeHtml(r.price || '')}</span>`
       ].join('');
 
-      // Rating bars (convert 0-5 -> 0-100%)
-      const food = r.ratings?.food || 0;
-      const service = r.ratings?.service || 0;
-      const ambiance = r.ratings?.ambiance || 0;
-
-      modalFoodScore.textContent = Number(food).toFixed(1);
-      modalServiceScore.textContent = Number(service).toFixed(1);
-      modalAmbianceScore.textContent = Number(ambiance).toFixed(1);
-
-      modalFoodBar.style.width = Math.max(0, Math.min(100, (food / 5) * 100)) + '%';
-      modalServiceBar.style.width = Math.max(0, Math.min(100, (service / 5) * 100)) + '%';
-      modalAmbianceBar.style.width = Math.max(0, Math.min(100, (ambiance / 5) * 100)) + '%';
-
       // Dishes
-      modalDishes.innerHTML = (r.recommendedDishes || []).slice(0, 6)
+      modalDishes.innerHTML = (r.recommendedDishes || []).slice(0, 3)
         .map((d) => `<span class="r-miniRatings__pill">${escapeHtml(d)}</span>`)
         .join('');
 
       modal.hidden = false;
-      modalBackdrop.hidden = false;
+      modal.style.left = '12px';
+      modal.style.top = '12px';
+
+      const modalRect = modal.getBoundingClientRect();
+      let left = (anchorX || 20) + 14;
+      let top = (anchorY || 20) + 14;
+      const maxLeft = window.innerWidth - modalRect.width - 12;
+      if (left > maxLeft) left = Math.max(12, maxLeft);
+      if (top + modalRect.height > window.innerHeight - 12) top = (anchorY || 20) - modalRect.height - 14;
+      if (top < 12) top = 12;
+      modal.style.left = left + 'px';
+      modal.style.top = top + 'px';
 
       // Focus close for accessibility.
       modalClose.focus();
@@ -421,7 +390,6 @@ title: Boston Eats
 
     function closeModal() {
       modal.hidden = true;
-      modalBackdrop.hidden = true;
     }
 
     // Open from featured + results (event delegation).
@@ -429,14 +397,15 @@ title: Boston Eats
       rootEl.addEventListener('click', (e) => {
         const card = e.target.closest('.js-open-restaurant');
         if (!card) return;
-        openModal(card.getAttribute('data-restaurant-id'));
+        openModal(card.getAttribute('data-restaurant-id'), e.clientX, e.clientY);
       });
       rootEl.addEventListener('keydown', (e) => {
         if (e.key !== 'Enter' && e.key !== ' ') return;
         const card = e.target.closest('.js-open-restaurant');
         if (!card) return;
         e.preventDefault();
-        openModal(card.getAttribute('data-restaurant-id'));
+        const rect = card.getBoundingClientRect();
+        openModal(card.getAttribute('data-restaurant-id'), rect.left + rect.width / 2, rect.top + rect.height / 2);
       });
     }
 
@@ -444,7 +413,12 @@ title: Boston Eats
     attachOpenHandlers(document.getElementById('resultsGrid'));
 
     modalClose.addEventListener('click', closeModal);
-    modalBackdrop.addEventListener('click', closeModal);
+    document.addEventListener('click', (e) => {
+      if (modal.hidden) return;
+      if (e.target.closest('#beModal')) return;
+      if (e.target.closest('.js-open-restaurant')) return;
+      closeModal();
+    });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !modal.hidden) closeModal();
     });
