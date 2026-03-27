@@ -1,12 +1,13 @@
 # Basic Jekyll Configuration
 
 # Site settings
-title: My Site
+title: Boston Eats
+theme: jekyll-theme-minimal
 email: your_email@example.com
 description: >-  
   This is my awesome website.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://example.com" # the base hostname & protocol for your site
+url: "http://Bostoneats.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
