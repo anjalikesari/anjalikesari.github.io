@@ -425,6 +425,12 @@ input[type="range"] {
   overflow: hidden;
 }
 
+/* Ensure hidden modal layers never block page interaction. */
+.be-modalBackdrop[hidden],
+.be-modal[hidden] {
+  display: none !important;
+}
+
 .be-modal__header {
   padding: 1rem 1.1rem;
   border-bottom: 1px solid rgba(18, 19, 26, 0.1);
